@@ -16,30 +16,26 @@ class DataTableViewCell: UITableViewCell {
                    profileImageView.image = UIImage(named: name)
                    nameLabel.text = name
                }
-               else { nameLabel.text = "  " }
                 if let imageURL = contactItem.imageHref {
-                    profileImageView.image = UIImage(named: "placeholder")
                     profileImageView.downloadImageFromURL(imageURL)
                 }
                 else{
                      profileImageView.image = UIImage(named: "placeholder")
                  }
-            
                if let desc = contactItem.description {
                    detailedLabel.text = desc
                }
-               else { detailedLabel.text = "  " }
-           }
+        }
        }
     
-    let containerView:UIView = {
+   private let containerView:UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.clipsToBounds = true // this will make sure its children do not go out of the boundary
         return view
     }()
     
-    let profileImageView:UIImageView = {
+   private let profileImageView:UIImageView = {
         let img = UIImageView()
         img.contentMode = .scaleAspectFill
         img.translatesAutoresizingMaskIntoConstraints = false // enable autolayout
@@ -48,7 +44,7 @@ class DataTableViewCell: UITableViewCell {
         return img
     }()
     
-    let nameLabel:UILabel = {
+   private let nameLabel:UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = .black
@@ -56,7 +52,7 @@ class DataTableViewCell: UITableViewCell {
         return label
     }()
     
-    let detailedLabel:UILabel = {
+   private let detailedLabel:UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor =  .black
@@ -73,7 +69,7 @@ class DataTableViewCell: UITableViewCell {
     addSubview(detailedLabel)
 
     
-    profileImageView.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 5, paddingLeft: 5, paddingBottom: 0, paddingRight: 0, width: 50, height: 50, enableInsets: false)
+    profileImageView.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 7, paddingLeft: 5, paddingBottom: 0, paddingRight: 0, width: 50, height: 50, enableInsets: false)
     
     nameLabel.anchor(top: topAnchor, left: profileImageView.rightAnchor, bottom: nil, right: rightAnchor, paddingTop: 5, paddingLeft: 10, paddingBottom: 0, paddingRight: 0, width: frame.size.width , height: 0, enableInsets: false)
     

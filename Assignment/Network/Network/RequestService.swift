@@ -14,7 +14,7 @@ import Foundation
 }
 final class RequestService {
     
-       let movieUrl = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
+       let movieUrl = AppConstants.serverPath+AppConstants.factsPath
        let defaultSession = URLSession(configuration: .default)
        var dataTask: URLSessionDataTask?
        var errorMessage = ""

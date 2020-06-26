@@ -37,14 +37,15 @@ extension UIView {
         if let bottom = bottom {
             bottomAnchor.constraint(equalTo: bottom, constant: -paddingBottom-bottomInset).isActive = true
         }
-        if height != 0 {
-            heightAnchor.constraint(equalToConstant: height).isActive = true
+        if height == 0 {
+            heightAnchor.constraint(greaterThanOrEqualToConstant: 25).isActive = true
+        }
+        else {
+             heightAnchor.constraint(equalToConstant: height).isActive = true
         }
         if width != 0 {
             widthAnchor.constraint(equalToConstant: width).isActive = true
         }
-        
     }
-    
 }
 
